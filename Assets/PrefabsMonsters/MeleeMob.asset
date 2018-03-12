@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d24d62ff2d2a1140930702d05051a46, type: 3}
+  m_Name: MeleeMob
+  m_EditorClassIdentifier: 
+  statList:
+  - StatType: 0
+    BaseValue: 3
+  - StatType: 1
+    BaseValue: 2
+  - StatType: 2
+    BaseValue: 2
+  range:
+    StatType: 0
+    BaseValue: 0
+  projectileSpeed:
+    StatType: 0
+    BaseValue: 0
+  health:
+    StatType: 0
+    BaseValue: 3
+  movementSpeed:
+    StatType: 0
+    BaseValue: 2
+  damage:
+    StatType: 0
+    BaseValue: 1
+  enemyType: 0
+  enemySprite: {fileID: 21300000, guid: edc25b46fe528094b89ecca1bba6616e, type: 3}
