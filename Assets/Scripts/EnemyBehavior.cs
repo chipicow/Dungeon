@@ -11,6 +11,7 @@ public class EnemyBehavior : MonoBehaviour
     GameObject Player;
     float time;
 
+
     // Use this for initialization
     void Start()
     {
@@ -88,5 +89,18 @@ public class EnemyBehavior : MonoBehaviour
     public void TakeDamage(float amount)
     {
         damageTaken += amount;
+        GetComponent<Animation>().Play("KnockBackRed");
+    }
+
+    public IEnumerator GetKnockBack(Vector3 position, float timeToMove)
+    {
+        var currentPos = transform.position;
+        var t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / timeToMove;
+            transform.position = Vector3.Lerp(currentPos, position, t);
+            yield return null;
+        }
     }
 }
