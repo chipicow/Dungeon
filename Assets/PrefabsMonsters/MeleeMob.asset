@@ -19,8 +19,8 @@ MonoBehaviour:
   - StatType: 2
     BaseValue: 2
   - StatType: 6
-    BaseValue: 2
+    BaseValue: 2.7
   - StatType: 7
-    BaseValue: 0.2
+    BaseValue: 0.3
   enemyType: 0
   enemySprite: {fileID: 21300000, guid: edc25b46fe528094b89ecca1bba6616e, type: 3}

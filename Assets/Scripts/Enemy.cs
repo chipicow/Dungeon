@@ -8,7 +8,7 @@ public class Enemy : ScriptableObject
     public List<CharacterStat> statList;
     public EnemyType enemyType;
     public Sprite enemySprite;
-
+    public GameObject monsterProjectile;
     public float GetStatValue(StatsType type)
     {
         return statList.Find(x=>x.StatType == type).Value;

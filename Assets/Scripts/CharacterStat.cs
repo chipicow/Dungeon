@@ -120,5 +120,7 @@ public enum StatsType
     ProjectileRange,
     AttackCooldown,
     KnockBackForce,
-    KnockBackDuration
+    KnockBackDuration,
+    StoppingDistance, // ranged mobs avoid melee combat
+    RetreatDistance, // ranged mobs avoid melee combat
 }

@@ -8,7 +8,7 @@ public class PlayerCollisions : MonoBehaviour
     private float timeSpent = 0;
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -20,12 +20,23 @@ public class PlayerCollisions : MonoBehaviour
     {
         if (col.gameObject.layer == 9 && timeSpent >= invinciblePeriod)
         {
-            Debug.Log("player collided with monster");
             timeSpent = 0f;
             var enemyComponent = col.gameObject.GetComponent<EnemyBehavior>();
             Vector2 knockbackPosition = transform.position + (transform.position - col.transform.position).normalized * enemyComponent.enemy.GetStatValue(StatsType.KnockBackForce);
-            StartCoroutine(gameObject.GetComponent<PlayerMovement>().GetKnockBack(knockbackPosition, enemyComponent.enemy.GetStatValue(StatsType.KnockBackDuration),transform));
+            StartCoroutine(gameObject.GetComponent<PlayerMovement>().GetKnockBack(knockbackPosition, enemyComponent.enemy.GetStatValue(StatsType.KnockBackDuration)));
             PlayerStats.instance.TakeDamage(enemyComponent.enemy.GetStatValue(StatsType.Damage));
+        }
+        //gotta debate wheter i destroy the projectile if player is  inmune
+        if (col.gameObject.layer == 10)
+        {
+            if (timeSpent >= invinciblePeriod)
+            {
+                var enemyStats = col.gameObject.GetComponent<EnemyProjectileScript>().enemy;
+                Vector2 knockbackPosition = transform.position + (transform.position - col.transform.position).normalized * enemyStats.GetStatValue(StatsType.KnockBackForce);
+                StartCoroutine(gameObject.GetComponent<PlayerMovement>().GetKnockBack(knockbackPosition, enemyStats.GetStatValue(StatsType.KnockBackDuration)));
+                PlayerStats.instance.TakeDamage(enemyStats.GetStatValue(StatsType.Damage));
+            }
+            Destroy(col.gameObject);
         }
     }
 }

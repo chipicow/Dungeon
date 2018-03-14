@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerAtkController : MonoBehaviour
 {
     public GameObject projectileObject;
-    private float fireRate;
-    private float bulletSpeed;
+    float fireRate;
+    float bulletSpeed;
     private float time;
     void Start()
     {

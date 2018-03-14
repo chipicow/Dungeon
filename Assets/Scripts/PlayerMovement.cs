@@ -5,10 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private bool CanMove;
-    Rigidbody2D rb;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         CanMove = true;
     }
     void Update()
@@ -64,9 +62,8 @@ public class PlayerMovement : MonoBehaviour
         return PlayerStats.instance.GetStatValue(StatsType.MovementSpeed);
     }
 
-    public IEnumerator GetKnockBack(Vector3 position, float timeToMove, Transform transform)
+    public IEnumerator GetKnockBack(Vector3 position, float timeToMove)
     {
-        CanMove = false;
         var currentPos = transform.position;
         var t = 0f;
         while (t < 1)
@@ -75,6 +72,5 @@ public class PlayerMovement : MonoBehaviour
             transform.position = Vector3.Lerp(currentPos, position, t);
             yield return null;
         }
-        CanMove = true;
     }
 }

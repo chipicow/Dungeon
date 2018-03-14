@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212669710702128002}
   - component: {fileID: 50831495575709016}
   - component: {fileID: 70390970560631640}
-  - component: {fileID: 114252224281539714}
-  m_Layer: 0
-  m_Name: Projectile
+  - component: {fileID: 114071802427353240}
+  m_Layer: 10
+  m_Name: MonsterProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.99999994, y: 1}
   m_Direction: 0
---- !u!114 &114252224281539714
+--- !u!114 &114071802427353240
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,9 +86,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1654508380120764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfe0fe9518eb5e4d836f9457dea89e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 37dbeed87dcf74644a09e531320ac158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!212 &212669710702128002
 SpriteRenderer:
   m_ObjectHideFlags: 1

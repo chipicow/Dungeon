@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileScript : MonoBehaviour
+public class PlayerProjectileScript : MonoBehaviour
 {
     void Start()
     {
