@@ -124,8 +124,7 @@ GameObject:
   - component: {fileID: 553011324}
   - component: {fileID: 553011322}
   - component: {fileID: 553011321}
-  - component: {fileID: 553011323}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,26 +158,6 @@ CircleCollider2D:
   m_Offset: {x: -0.1, y: 0.25}
   serializedVersion: 2
   m_Radius: 0.5214323
---- !u!50 &553011323
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 553011320}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &553011324
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -369,24 +348,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17116b28175b31b48b17f94205a9f678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health:
-    StatType: 0
-    BaseValue: 0
-  Damage:
-    StatType: 0
-    BaseValue: 0
-  MovementSpeed:
-    StatType: 0
-    BaseValue: 0
-  AttackCooldown:
-    StatType: 0
-    BaseValue: 0
-  ProjectileRange:
-    StatType: 0
-    BaseValue: 0
-  ProjectileSpeed:
-    StatType: 0
-    BaseValue: 0
+  Player: {fileID: 1922094166}
+  allStats:
+  - StatType: 0
+    BaseValue: 5
+  - StatType: 1
+    BaseValue: 5
+  - StatType: 2
+    BaseValue: 2
+  - StatType: 3
+    BaseValue: 5
+  - StatType: 4
+    BaseValue: 20
+  - StatType: 5
+    BaseValue: 2
 --- !u!4 &1256896555
 Transform:
   m_ObjectHideFlags: 0
@@ -451,12 +426,12 @@ Prefab:
     - target: {fileID: 61172386694573570, guid: 4848c741c71d5ed489a7748c9d01755c,
         type: 2}
       propertyPath: m_Size.x
-      value: 1
+      value: 1.3623495
       objectReference: {fileID: 0}
     - target: {fileID: 61172386694573570, guid: 4848c741c71d5ed489a7748c9d01755c,
         type: 2}
       propertyPath: m_Size.y
-      value: 2
+      value: 2.1987076
       objectReference: {fileID: 0}
     - target: {fileID: 4892752979540294, guid: 4848c741c71d5ed489a7748c9d01755c, type: 2}
       propertyPath: m_LocalScale.y
@@ -468,6 +443,41 @@ Prefab:
       value: 
       objectReference: {fileID: 1654508380120764, guid: 19dd36881ea9b5c428445f336a210c8e,
         type: 2}
+    - target: {fileID: 61172386694573570, guid: 4848c741c71d5ed489a7748c9d01755c,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0.18117476
+      objectReference: {fileID: 0}
+    - target: {fileID: 61172386694573570, guid: 4848c741c71d5ed489a7748c9d01755c,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.09935379
+      objectReference: {fileID: 0}
+    - target: {fileID: 61172386694573570, guid: 4848c741c71d5ed489a7748c9d01755c,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212761980746334978, guid: 4848c741c71d5ed489a7748c9d01755c,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212761980746334978, guid: 4848c741c71d5ed489a7748c9d01755c,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212761980746334978, guid: 4848c741c71d5ed489a7748c9d01755c,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212761980746334978, guid: 4848c741c71d5ed489a7748c9d01755c,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114941249096788532, guid: 4848c741c71d5ed489a7748c9d01755c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4848c741c71d5ed489a7748c9d01755c, type: 2}
@@ -629,6 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c1be77dbf91d24886c562d7c23c628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invinciblePeriod: 1
 --- !u!50 &1922094172
 Rigidbody2D:
   serializedVersion: 4
@@ -649,6 +660,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!111 &1922094173
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922094166}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 60816b94fc318934e8c6cf9402dc2eda, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &1975184021
 Prefab:
   m_ObjectHideFlags: 0
@@ -691,6 +717,10 @@ Prefab:
     - target: {fileID: 1586745659098048, guid: 0651a09c4e48da845bafd56d5db34ada, type: 2}
       propertyPath: m_Name
       value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586745659098048, guid: 0651a09c4e48da845bafd56d5db34ada, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0651a09c4e48da845bafd56d5db34ada, type: 2}

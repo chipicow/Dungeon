@@ -7,46 +7,46 @@ public class PlayerStats : MonoBehaviour
     #region Singleton
     public static PlayerStats instance;
 
+
     void Awake()
     {
         instance = this;
     }
     #endregion
 
-    public CharacterStat Health;
-    public CharacterStat Damage;
-    public CharacterStat MovementSpeed;
-    public CharacterStat AttackCooldown;
-    public CharacterStat ProjectileRange;
-    public CharacterStat ProjectileSpeed;
+    public GameObject Player;
+    public List<CharacterStat> allStats;
 
     private float DamageTaken;
+    Animation animationList;
     void Start()
     {
         DamageTaken = 0;
-        Health.BaseValue = 3;
-        Damage.BaseValue = 1;
-        MovementSpeed.BaseValue = 5;
-        AttackCooldown.BaseValue = 0.2f;
-        ProjectileRange.BaseValue = 5f;
-        ProjectileSpeed.BaseValue = 30;
+        animationList = Player.GetComponent<Animation>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Health.Value <= DamageTaken)
+        if (GetStatValue(StatsType.Health) <= DamageTaken)
         {
             Die();
         }
     }
     void Die()
     {
-        Debug.Log("took more then health value: " + Health.Value + " " + DamageTaken);
+        Debug.Log("took more then health value: " + GetStatValue(StatsType.Health) + " " + DamageTaken);
     }
 
     public void TakeDamage(float amount)
     {
         DamageTaken += amount;
+        animationList.Play("KnockBackRed");
     }
+
+    public float GetStatValue(StatsType type)
+    {
+        return allStats.Find(x => x.StatType == type).Value;
+    }
+
 }

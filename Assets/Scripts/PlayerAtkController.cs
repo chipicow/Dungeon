@@ -10,7 +10,7 @@ public class PlayerAtkController : MonoBehaviour
     private float time;
     void Start()
     {
-        fireRate = PlayerStats.instance.AttackCooldown.Value;
+        fireRate = PlayerStats.instance.GetStatValue(StatsType.AttackCooldown);
         time = 0f;
     }
 
@@ -19,8 +19,8 @@ public class PlayerAtkController : MonoBehaviour
         time += Time.deltaTime;
         if (Input.GetKey(KeyCode.Mouse0) && time >= fireRate)
         {
-            fireRate = PlayerStats.instance.AttackCooldown.Value;
-            bulletSpeed = PlayerStats.instance.ProjectileSpeed.Value;
+            fireRate = PlayerStats.instance.GetStatValue(StatsType.AttackCooldown);
+            bulletSpeed = PlayerStats.instance.GetStatValue(StatsType.ProjectileSpeed);
             time = 0f;
             Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = (Vector2)((worldMousePos - transform.position));

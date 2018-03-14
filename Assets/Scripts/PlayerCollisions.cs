@@ -4,11 +4,28 @@ using UnityEngine;
 
 public class PlayerCollisions : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D col)
+    public float invinciblePeriod;
+    private float timeSpent = 0;
+    void Start()
     {
-        if (col.collider.gameObject.layer == 9)
+        
+    }
+
+    void Update()
+    {
+        timeSpent += Time.deltaTime;
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.layer == 9 && timeSpent >= invinciblePeriod)
         {
-            PlayerStats.instance.TakeDamage(col.gameObject.GetComponent<Enemy>().statList.Find(x=>x.StatType == StatsType.Damage).Value);
+            Debug.Log("player collided with monster");
+            timeSpent = 0f;
+            var enemyComponent = col.gameObject.GetComponent<EnemyBehavior>();
+            Vector2 knockbackPosition = transform.position + (transform.position - col.transform.position).normalized * enemyComponent.enemy.GetStatValue(StatsType.KnockBackForce);
+            StartCoroutine(gameObject.GetComponent<PlayerMovement>().GetKnockBack(knockbackPosition, enemyComponent.enemy.GetStatValue(StatsType.KnockBackDuration),transform));
+            PlayerStats.instance.TakeDamage(enemyComponent.enemy.GetStatValue(StatsType.Damage));
         }
     }
 }

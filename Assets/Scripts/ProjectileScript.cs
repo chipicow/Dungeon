@@ -6,7 +6,7 @@ public class ProjectileScript : MonoBehaviour
 {
     void Start()
     {
-        Destroy(gameObject, PlayerStats.instance.ProjectileRange.Value / PlayerStats.instance.ProjectileSpeed.Value);
+        Destroy(gameObject, PlayerStats.instance.GetStatValue(StatsType.ProjectileRange) / PlayerStats.instance.GetStatValue(StatsType.ProjectileSpeed));
     }
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -17,7 +17,7 @@ public class ProjectileScript : MonoBehaviour
 
         if (col.collider.gameObject.layer == 9)
         {
-            col.gameObject.GetComponent<EnemyBehavior>().TakeDamage(PlayerStats.instance.Damage.Value);
+            col.gameObject.GetComponent<EnemyBehavior>().TakeDamage(PlayerStats.instance.GetStatValue(StatsType.Damage));
             Destroy(gameObject);
         }
     }

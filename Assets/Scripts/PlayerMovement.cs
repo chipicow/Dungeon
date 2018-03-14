@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Use this for initialization
+    private bool CanMove;
+    Rigidbody2D rb;
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
+        CanMove = true;
     }
     void Update()
     {
-        GetUserMovement();
+        if (CanMove)
+            GetUserMovement();
     }
 
     void GetUserMovement()
@@ -58,6 +61,20 @@ public class PlayerMovement : MonoBehaviour
 
     float GetCurrentMovementSpeed()
     {
-        return PlayerStats.instance.MovementSpeed.Value;
+        return PlayerStats.instance.GetStatValue(StatsType.MovementSpeed);
+    }
+
+    public IEnumerator GetKnockBack(Vector3 position, float timeToMove, Transform transform)
+    {
+        CanMove = false;
+        var currentPos = transform.position;
+        var t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / timeToMove;
+            transform.position = Vector3.Lerp(currentPos, position, t);
+            yield return null;
+        }
+        CanMove = true;
     }
 }

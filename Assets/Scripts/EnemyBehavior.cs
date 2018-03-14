@@ -21,10 +21,14 @@ public class EnemyBehavior : MonoBehaviour
     void Update()
     {
         if (enemy.enemyType == EnemyType.Melee)
+        {
             MeleeBehavior();
-        if (enemy.enemyType == EnemyType.Ranged)
+        }
+        else if (enemy.enemyType == EnemyType.Ranged)
+        {
             RangedBehavior();
-        if (enemy.statList.Find(x => x.StatType == StatsType.Health).Value < damageTaken)
+        }
+        if (enemy.GetStatValue(StatsType.Health) < damageTaken)
         {
             Die();
         }
@@ -32,8 +36,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void MeleeBehavior()
     {
-        transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, enemy.statList
-            .Find(x => x.StatType == StatsType.MovementSpeed).Value * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, enemy.GetStatValue(StatsType.MovementSpeed) * Time.deltaTime);
     }
 
     void RangedBehavior()

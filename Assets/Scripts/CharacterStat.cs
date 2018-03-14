@@ -118,5 +118,7 @@ public enum StatsType
     Damage,
     ProjectileSpeed,
     ProjectileRange,
-    AttackCooldown
+    AttackCooldown,
+    KnockBackForce,
+    KnockBackDuration
 }

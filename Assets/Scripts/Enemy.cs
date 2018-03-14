@@ -9,6 +9,12 @@ public class Enemy : ScriptableObject
     public EnemyType enemyType;
     public Sprite enemySprite;
 
+    public float GetStatValue(StatsType type)
+    {
+        return statList.Find(x=>x.StatType == type).Value;
+    }
+
+
 }
 
 public enum EnemyType
