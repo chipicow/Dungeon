@@ -30,6 +30,7 @@ public class PlayerAtkController : MonoBehaviour
                                     projectileObject,
                                     transform.position + (Vector3)(direction * 0.5f),
                                     Quaternion.identity);
+            bullet.transform.localScale += new Vector3(bullet.transform.localScale.x, bullet.transform.localScale.y, 0) * PlayerStats.instance.GetStatValue(StatsType.ProjectileSize);
             // Adds velocity to the bullet
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         }

@@ -13,8 +13,6 @@ public class Enemy : ScriptableObject
     {
         return statList.Find(x => x.StatType == type).Value;
     }
-
-
 }
 
 public enum EnemyType

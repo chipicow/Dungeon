@@ -76,6 +76,7 @@ public class EnemyBehavior : MonoBehaviour
             Vector2 direction = ((worldMousePos - transform.position)).normalized;
             var projectile = Instantiate(enemy.monsterProjectile, transform.position + (Vector3)(direction * 0.5f), Quaternion.identity);
             projectile.GetComponent<EnemyProjectileScript>().enemy = enemy;
+            projectile.transform.localScale += new Vector3(projectile.transform.localScale.x, projectile.transform.localScale.y, 0) * enemy.GetStatValue(StatsType.ProjectileSize);
             // Adds velocity to the bullet
             projectile.GetComponent<Rigidbody2D>().velocity = direction * enemy.GetStatValue(StatsType.ProjectileSpeed);
         }
