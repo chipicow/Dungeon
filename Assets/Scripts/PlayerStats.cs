@@ -49,4 +49,15 @@ public class PlayerStats : MonoBehaviour
         return allStats.Find(x => x.StatType == type).Value;
     }
 
+    public float DealDamage()
+    {
+        float damage = GetStatValue(StatsType.Damage);
+        if (Random.value <= GetStatValue(StatsType.CriticalChance))
+        {
+            damage *= GetStatValue(StatsType.CriticalDamage);
+            Debug.Log("crited for :" + damage + " from : " + GetStatValue(StatsType.Damage));
+        }
+        return (float)System.Math.Round(damage, 0);
+    }
+
 }

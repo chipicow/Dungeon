@@ -124,4 +124,8 @@ public enum StatsType
     StoppingDistance, // ranged mobs avoid melee combat
     RetreatDistance, // ranged mobs avoid melee combat
     ProjectileSize,
+    Armor,
+    OnHitDrain,
+    CriticalChance,
+    CriticalDamage
 }

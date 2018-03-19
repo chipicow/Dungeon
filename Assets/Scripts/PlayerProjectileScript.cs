@@ -19,7 +19,7 @@ public class PlayerProjectileScript : MonoBehaviour
         {
             Vector2 knockbackPosition = col.gameObject.transform.position + (col.gameObject.transform.position - transform.position).normalized * PlayerStats.instance.GetStatValue(StatsType.KnockBackForce);
             StartCoroutine(col.gameObject.GetComponent<EnemyBehavior>().GetKnockBack(knockbackPosition, PlayerStats.instance.GetStatValue(StatsType.KnockBackDuration)));
-            col.gameObject.GetComponent<EnemyBehavior>().TakeDamage(PlayerStats.instance.GetStatValue(StatsType.Damage));
+            col.gameObject.GetComponent<EnemyBehavior>().TakeDamage(PlayerStats.instance.DealDamage());
             Destroy(gameObject);
         }
 

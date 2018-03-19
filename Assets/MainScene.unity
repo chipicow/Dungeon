@@ -228,6 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1256896555}
   - component: {fileID: 1256896554}
+  - component: {fileID: 1256896556}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -266,6 +267,14 @@ MonoBehaviour:
     BaseValue: 3
   - StatType: 10
     BaseValue: 0.33
+  - StatType: 11
+    BaseValue: 0.1
+  - StatType: 12
+    BaseValue: 1
+  - StatType: 13
+    BaseValue: 0.5
+  - StatType: 14
+    BaseValue: 2
 --- !u!4 &1256896555
 Transform:
   m_ObjectHideFlags: 0
@@ -274,11 +283,24 @@ Transform:
   m_GameObject: {fileID: 1256896553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4749999, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1256896556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256896553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8753f3e8fb9cced41a117442d56d2d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XP: 0
+  currentLevel: 0
 --- !u!1001 &1285003093
 Prefab:
   m_ObjectHideFlags: 0
@@ -320,11 +342,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4753991578372968, guid: abc86be870f384f4ea47b30130749695, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4753991578372968, guid: abc86be870f384f4ea47b30130749695, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abc86be870f384f4ea47b30130749695, type: 2}
@@ -378,6 +400,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4933110437766222, guid: a5486cd2a5c981f46bf3ad794d699e82, type: 2}
       propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933110437766222, guid: a5486cd2a5c981f46bf3ad794d699e82, type: 2}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -436,7 +462,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.129119
+  orthographic size: 9.60035
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -620,11 +646,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4196629371119838, guid: 3254235c6eeb37f499fa47bad87dc53d, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4196629371119838, guid: 3254235c6eeb37f499fa47bad87dc53d, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3254235c6eeb37f499fa47bad87dc53d, type: 2}

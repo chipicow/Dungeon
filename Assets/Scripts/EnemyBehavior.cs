@@ -32,7 +32,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             RangedBehavior();
         }
-        if (enemy.GetStatValue(StatsType.Health) < damageTaken)
+        if (enemy.GetStatValue(StatsType.Health) <= damageTaken)
         {
             Die();
         }
