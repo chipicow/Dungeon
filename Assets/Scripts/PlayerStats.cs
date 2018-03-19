@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        DamageTaken += amount;
+        DamageTaken += amount * (GetStatValue(1 - StatsType.Armor));
         animationList.Play("KnockBackRed");
     }
 

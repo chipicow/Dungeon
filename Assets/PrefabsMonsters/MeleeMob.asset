@@ -22,6 +22,8 @@ MonoBehaviour:
     BaseValue: 5
   - StatType: 7
     BaseValue: 0.3
+  - StatType: 11
+    BaseValue: 0
   enemyType: 0
   enemySprite: {fileID: 21300000, guid: edc25b46fe528094b89ecca1bba6616e, type: 3}
   monsterProjectile: {fileID: 0}
