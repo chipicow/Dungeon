@@ -127,5 +127,6 @@ public enum StatsType
     Armor,
     OnHitDrain,
     CriticalChance,
-    CriticalDamage
+    CriticalDamage,
+    Melee
 }

@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        DamageTaken += amount * (GetStatValue(1 - StatsType.Armor));
+        DamageTaken += amount * (1 - GetStatValue(StatsType.Armor));
         animationList.Play("KnockBackRed");
     }
 
@@ -55,8 +55,8 @@ public class PlayerStats : MonoBehaviour
         if (Random.value <= GetStatValue(StatsType.CriticalChance))
         {
             damage *= GetStatValue(StatsType.CriticalDamage);
-            Debug.Log("crited for :" + damage + " from : " + GetStatValue(StatsType.Damage));
         }
+        DamageTaken = System.Math.Max(0, DamageTaken - GetStatValue(StatsType.OnHitDrain));
         return (float)System.Math.Round(damage, 0);
     }
 

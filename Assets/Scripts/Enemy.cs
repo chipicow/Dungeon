@@ -11,7 +11,6 @@ public class Enemy : ScriptableObject
     public GameObject monsterProjectile;
     public float GetStatValue(StatsType type)
     {
-        Debug.Log(GetStatValue(StatsType.Armor));
         return statList.Find(x => x.StatType == type).Value;
     }
 }

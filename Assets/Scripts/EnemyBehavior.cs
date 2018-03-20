@@ -89,7 +89,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        damageTaken += amount * (enemy.GetStatValue(1 - StatsType.Armor));
+        damageTaken += amount * 1 - (enemy.GetStatValue(StatsType.Armor));
         GetComponent<Animation>().Play("KnockBackRed");
     }
 
